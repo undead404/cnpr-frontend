@@ -62,6 +62,7 @@ const config = {
   },
 
   resolve: {
+    extensions: ['.js', '.jsx'],
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'
     // Keep in sync with .flowconfig and .eslintrc
     modules: ['node_modules', 'src'],
@@ -299,7 +300,7 @@ const clientConfig = {
   target: 'web',
 
   entry: {
-    client: ['@babel/polyfill', './src/client.js'],
+    client: ['@babel/polyfill', './src/client.jsx'],
   },
 
   plugins: [
@@ -392,7 +393,7 @@ const serverConfig = {
   target: 'node',
 
   entry: {
-    server: ['@babel/polyfill', './src/server.js'],
+    server: ['@babel/polyfill', './src/server.jsx'],
   },
 
   output: {
