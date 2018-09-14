@@ -17,31 +17,19 @@ const routes = {
   children: [
     {
       path: '',
-      load: () => import(/* webpackChunkName: 'home' */ './home'),
+      load: () => import(/* webpackChunkName: 'logs' */ './logs'),
     },
     {
-      path: '/contact',
-      load: () => import(/* webpackChunkName: 'contact' */ './contact'),
+      path: '/config',
+      load: () => import(/* webpackChunkName: 'config' */ './config'),
     },
     {
-      path: '/login',
-      load: () => import(/* webpackChunkName: 'login' */ './login'),
+      path: '/list',
+      load: () => import(/* webpackChunkName: 'list' */ './list'),
     },
     {
-      path: '/register',
-      load: () => import(/* webpackChunkName: 'register' */ './register'),
-    },
-    {
-      path: '/about',
-      load: () => import(/* webpackChunkName: 'about' */ './about'),
-    },
-    {
-      path: '/privacy',
-      load: () => import(/* webpackChunkName: 'privacy' */ './privacy'),
-    },
-    {
-      path: '/admin',
-      load: () => import(/* webpackChunkName: 'admin' */ './admin'),
+      path: '/recognized/:plateNumber',
+      load: () => import(/* webpackChunkName: 'recognized' */ './recognized'),
     },
 
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)

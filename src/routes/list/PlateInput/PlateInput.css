@@ -1,0 +1,30 @@
+.button {
+  background-color: #1958a8;
+  border: 2px solid #0b314f;
+  border-radius: 1px;
+  color: white;
+  flex: 1;
+  font-size: 24px;
+  margin: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.input {
+  flex: 1;
+  border-color: green;
+  font-size: 20px;
+}
+
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.warned {
+  border-color: red;
+}

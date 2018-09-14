@@ -1,28 +1,21 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 
-import {
-  GraphQLSchema as Schema,
-  GraphQLObjectType as ObjectType,
-} from 'graphql';
+import config from 'data/queries/config';
+import plates from 'data/queries/plates';
+import deletePlate from 'data/mutations/delete-plate';
 
-import me from './queries/me';
-import news from './queries/news';
-
-const schema = new Schema({
-  query: new ObjectType({
-    name: 'Query',
+export default new GraphQLSchema({
+  mutation: new GraphQLObjectType({
     fields: {
-      me,
-      news,
+      deletePlate,
     },
+    name: 'Mutation',
+  }),
+  query: new GraphQLObjectType({
+    fields: {
+      config,
+      plates,
+    },
+    name: 'Query',
   }),
 });
-
-export default schema;

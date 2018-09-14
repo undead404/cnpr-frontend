@@ -1,12 +1,4 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
+import path from 'path';
 /* eslint-disable max-len */
 
 if (process.env.BROWSER) {
@@ -15,7 +7,7 @@ if (process.env.BROWSER) {
   );
 }
 
-module.exports = {
+export default {
   // Node.js app
   port: process.env.PORT || 3000,
 
@@ -32,8 +24,12 @@ module.exports = {
       `http://localhost:${process.env.PORT || 3000}`,
   },
 
+  dbFileName: path.resolve('..', 'recognition.db'),
+
   // Database
-  databaseUrl: process.env.DATABASE_URL || 'sqlite:database.sqlite',
+  databaseUrl:
+    process.env.DATABASE_URL ||
+    `sqlite:${path.resolve('..', '..', 'recognition.db')}`,
 
   // Web analytics
   analytics: {
@@ -43,7 +39,7 @@ module.exports = {
 
   // Authentication
   auth: {
-    jwt: { secret: process.env.JWT_SECRET || 'React Starter Kit' },
+    jwt: { secret: process.env.JWT_SECRET || 'Car Number Plate Recognition' },
 
     // https://developers.facebook.com/
     facebook: {

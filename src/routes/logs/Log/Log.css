@@ -1,0 +1,31 @@
+.cell {
+  flex: 1;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  background-color: transparent;
+  flex: 1;
+  flex-basis: 3%;
+  flex-direction: row;
+  font-size: 16px;
+  font-weight: normal;
+  justify-content: space-around;
+  padding: 5px;
+  align-items: center;
+}
+
+.hasPlate {
+  background-color: #ee336157;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.isApproved {
+  background-color: #2db7ca5e;
+}
+
+.root {
+  flex: 1;
+}

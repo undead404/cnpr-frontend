@@ -32,6 +32,15 @@ module.exports = {
   },
 
   rules: {
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        js: 'never',
+        jsx: 'never',
+        mjs: 'never',
+      },
+    ],
     // Forbid the use of extraneous packages
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
     'import/no-extraneous-dependencies': ['error', { packageDir: __dirname }],
@@ -94,6 +103,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/tree/master/resolvers
     'import/resolver': {
       node: {
+        extensions: ['.js', '.jsx', '.mjs'],
         moduleDirectory: ['node_modules', 'src'],
       },
     },

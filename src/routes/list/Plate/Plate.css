@@ -1,0 +1,49 @@
+.deleteButton {
+  background-color: transparent;
+  border: 0;
+  flex-grow: 0;
+}
+
+.deleteIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.id {
+  font-size: 24px;
+  margin: 0;
+  margin-right: 5px;
+  padding: 0;
+}
+
+.lastSeen {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.number {
+  border: 1px solid black;
+  border-radius: 2px;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  /* height: 50px;
+  width: 240px; */
+  justify-content: space-between;
+}
+
+.statusInput {
+  flex-grow: 0;
+  padding: 0 8px;
+}

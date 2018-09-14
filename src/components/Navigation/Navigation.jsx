@@ -1,39 +1,63 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-import React from 'react';
 import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Navigation.css';
-import Link from '../Link';
+// import PropTypes from 'prop-types';
+import React from 'react';
+import Link from 'components/Link';
+import style from './Navigation.css';
+import smartBoomGate2 from './smart_boom_gate2.png';
 
-class Navigation extends React.Component {
+@withStyles(style)
+export default class Navigation extends React.Component {
   render() {
+    console.info('Navigation', this.props);
+    const pathname = process.env.BROWSER && window.location.pathname;
+    // const {
+    //   location: { pathname },
+    // } = this.props;
+    // console.log('header mounted url')
+    // console.log(this.props)
+
     return (
-      <div className={s.root} role="navigation">
-        <Link className={s.link} to="/about">
-          About
+      <div className={style.root}>
+        <img alt="CNPR" className={style.image} src={smartBoomGate2} />
+        <Link
+          className={cx(
+            style.link,
+            pathname === '/list' ? style.linkActive : undefined,
+          )}
+          to="/list"
+        >
+          White List
         </Link>
-        <Link className={s.link} to="/contact">
-          Contact
+        <Link
+          className={cx(
+            style.link,
+            pathname === '/recognition' ? style.linkActive : undefined,
+          )}
+          to="/recognition"
+        >
+          Recognition
         </Link>
-        <span className={s.spacer}> | </span>
-        <Link className={s.link} to="/login">
-          Log in
+        <Link
+          className={cx(
+            style.link,
+            pathname === '/log' ? style.linkActive : undefined,
+          )}
+          to="/log"
+        >
+          Log&amp;s
         </Link>
-        <span className={s.spacer}>or</span>
-        <Link className={cx(s.link, s.highlight)} to="/register">
-          Sign up
+        <Link
+          className={cx(
+            style.link,
+            pathname === '/config' ? style.linkActive : undefined,
+          )}
+          to="/config"
+        >
+          Config
         </Link>
+        <div />
       </div>
     );
   }
 }
-
-export default withStyles(s)(Navigation);
