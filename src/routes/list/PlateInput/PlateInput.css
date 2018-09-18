@@ -1,7 +1,9 @@
+@import '../../../components/variables.css';
+
 .button {
-  background-color: #1958a8;
-  border: 2px solid #0b314f;
-  border-radius: 1px;
+  background-color: var(--eliftech-color-secondary-green);
+  border: 2px solid var(--eliftech-color-primary-light);
+  border-radius: 3px;
   color: white;
   flex: 1;
   font-size: 24px;
@@ -13,8 +15,9 @@
 
 .input {
   flex: 1;
-  border-color: green;
+  border-color: var(--eliftech-color-secondary-green);
   font-size: 20px;
+  padding: 5px;
 }
 
 .root {
@@ -26,5 +29,5 @@
 }
 
 .warned {
-  border-color: red;
+  border-color: var(--eliftech-color-secondary-red);
 }

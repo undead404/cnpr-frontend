@@ -6,7 +6,7 @@
 }
 
 .error {
-  background-color: red;
+  background-color: var(--eliftech-color-secondary-red);
 }
 
 .head {
@@ -34,8 +34,7 @@
 }
 
 .root {
-  background-color: #90afd21a;
-  border: 2px solid #0b314f;
+  border: 2px solid var(--eliftech-color-primary-dark);
   flex: 1;
   flex-direction: column;
   font-family: 'Lato', sans-serif;

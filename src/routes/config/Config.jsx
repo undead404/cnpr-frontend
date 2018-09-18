@@ -29,6 +29,7 @@ export default class Config extends React.Component {
   };
 
   triggerChangeAndSave = async type => {
+    console.info('state', this.state);
     if (this.state[type]) {
       const response = await this.props.fetch('/graphql', {
         body: JSON.stringify({
@@ -41,6 +42,9 @@ export default class Config extends React.Component {
       });
       const data = await response.json();
       console.info(data);
+      if (data && data.editConfig) {
+        this.setState(data.editConfig);
+      }
     }
     this.setState({ [type]: !this.state[type] });
   };
@@ -74,15 +78,14 @@ export default class Config extends React.Component {
         </div>
 
         <div className={style.row}>
-          <div className={style.label}> Minimal confidence : </div>
+          <div className={style.label}> Minimal confidence: </div>
           {!this.state.editConfidence ? (
             <div className={style.label}> {this.state.minConfidence} %</div>
           ) : (
             <input
               className={style.input}
-              name="confidence"
+              name="minConfidence"
               onChange={this.onChange}
-              placeholder="Confidence"
               type="number"
               value={this.state.minConfidence}
             />

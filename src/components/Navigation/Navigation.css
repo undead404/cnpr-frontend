@@ -1,9 +1,12 @@
+@import '../../components/variables.css';
+
 .image {
   max-height: 80%;
 }
 
 .link {
-  color: gray;
+  /* color: gray; */
+  font-weight: normal;
   text-decoration: none;
 }
 
@@ -14,7 +17,7 @@
 .root {
   align-content: center;
   align-items: center;
-  background-color: #0b314f;
+  background-color: var(--eliftech-color-primary-dark);
   display: flex;
   flex: 1;
   flex-direction: row;

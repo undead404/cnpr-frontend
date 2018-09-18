@@ -26,7 +26,6 @@ export default class Log extends React.Component {
         <div
           className={cx(
             style.container,
-            this.props.plateNumber ? style.hasPlate : undefined,
             this.props.approved ? style.isApproved : undefined,
           )}
         >

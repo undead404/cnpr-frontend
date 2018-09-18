@@ -5,6 +5,11 @@
 
   --font-family-base: 'Lato', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;
   --font-family-head: 'Roboto', 'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+  --eliftech-color-primary-dark: #0b314f;
+  --eliftech-color-primary-light: #13a6e1;
+  --eliftech-color-primary-mid: #1958a8;
+  --eliftech-color-secondary-red: #ee3361;
+  --eliftech-color-secondary-green: #2db7ca;
 
   /*
    * Layout

@@ -93,29 +93,23 @@ class Database {
   }
 
   async getPersistentConfig() {
-    if (!this.persistentConfig) {
-      if (!this.isOpen()) {
-        await this.init();
-      }
-      const configRows = await this.db.all('SELECT key, value FROM config');
-      const persistentConfig = {};
-      configRows.forEach(configRecord => {
-        switch (configRecord.key) {
-          case 'minConfidence':
-          case 'minNumberLength':
-          case 'recognitionDelay':
-            persistentConfig[configRecord.key] = parseInt(
-              configRecord.value,
-              10,
-            );
-            break;
-          default:
-            persistentConfig[configRecord.key] = configRecord.value;
-        }
-      });
-      this.persistentConfig = persistentConfig;
+    if (!this.isOpen()) {
+      await this.init();
     }
-    return this.persistentConfig;
+    const configRows = await this.db.all('SELECT key, value FROM config');
+    const persistentConfig = {};
+    configRows.forEach(configRecord => {
+      switch (configRecord.key) {
+        case 'minConfidence':
+        case 'minNumberLength':
+        case 'recognitionDelay':
+          persistentConfig[configRecord.key] = parseInt(configRecord.value, 10);
+          break;
+        default:
+          persistentConfig[configRecord.key] = configRecord.value;
+      }
+    });
+    return persistentConfig;
   }
 
   async getPlateById(id) {

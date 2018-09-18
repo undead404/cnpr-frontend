@@ -11,11 +11,15 @@
  * ========================================================================== */
 
 html {
-  color: #222;
+  color: var(--eliftech-color-primary-dark);
   font-weight: 100;
-  font-size: 1em; /* ~16px; */
+  font-size: 1em;
+
+  /* ~16px; */
   font-family: var(--font-family-base);
-  line-height: 1.375; /* ~22px */
+  line-height: 1.375;
+
+  /* ~22px */
 }
 
 body {
@@ -23,7 +27,7 @@ body {
 }
 
 a {
-  color: #0074c2;
+  color: var(--eliftech-color-primary-light);
 }
 
 /*
@@ -121,7 +125,9 @@ textarea {
   *::before,
   *::after {
     background: transparent !important;
-    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    color: #000 !important;
+
+    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -132,11 +138,11 @@ textarea {
   }
 
   a[href]::after {
-    content: ' (' attr(href) ')';
+    content: ' ('attr(href) ')';
   }
 
   abbr[title]::after {
-    content: ' (' attr(title) ')';
+    content: ' ('attr(title) ')';
   }
 
   /*
