@@ -1,5 +1,6 @@
 import {
   GraphQLBoolean,
+  GraphQLFloat,
   GraphQLInt,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -7,11 +8,13 @@ import {
 } from 'graphql';
 
 export default new GraphQLObjectType({
-  name: 'Plate',
+  name: 'Log',
   fields: {
     allowed: { type: new GraphQLNonNull(GraphQLBoolean) },
+    confidence: { type: GraphQLFloat },
+    datetime: { type: new GraphQLNonNull(GraphQLString) },
     id: { type: new GraphQLNonNull(GraphQLInt) },
-    last_seen: { type: new GraphQLNonNull(GraphQLString) },
-    number: { type: new GraphQLNonNull(GraphQLString) },
+    plateNumber: { type: new GraphQLNonNull(GraphQLString) },
+    region: { type: new GraphQLNonNull(GraphQLString) },
   },
 });

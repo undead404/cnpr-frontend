@@ -1,10 +1,10 @@
 .cell {
   flex: 1;
   text-align: center;
+  display: table-cell;
 }
 
 .container {
-  display: flex;
   background-color: transparent;
   flex: 1;
   flex-basis: 3%;
@@ -14,6 +14,7 @@
   justify-content: space-around;
   padding: 5px;
   align-items: center;
+  display: table-row;
 }
 
 .hasPlate {
@@ -28,4 +29,5 @@
 
 .root {
   flex: 1;
+  display: table-row-group;
 }

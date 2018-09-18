@@ -6,11 +6,12 @@ import style from './Config.css';
 export default class Config extends React.Component {
   static propTypes = {
     config: PropTypes.shape({
-      confidence: PropTypes.number,
-      delay: PropTypes.number,
+      configVersion: PropTypes.string,
+      minConfidence: PropTypes.number,
       minNumberLength: PropTypes.number,
+      recognitionDelay: PropTypes.number,
     }).isRequired,
-    onSave: PropTypes.func.isRequired,
+    fetch: PropTypes.func.isRequired,
   };
   constructor(props) {
     super(props);
@@ -20,12 +21,26 @@ export default class Config extends React.Component {
   }
 
   onChange = ({ target }) => {
-    this.setState({ [target.name]: target.value < 0 ? 0 : target.value });
+    console.info(target.name, target.value);
+    const value = parseInt(target.value, 10);
+    this.setState({ [target.name]: value < 0 ? 0 : value }, () => {
+      console.info(this.state);
+    });
   };
 
-  triggerChangeAndSave = type => {
+  triggerChangeAndSave = async type => {
     if (this.state[type]) {
-      this.props.onSave(this.state);
+      const response = await this.props.fetch('/graphql', {
+        body: JSON.stringify({
+          query:
+            'mutation editConfig($minConfidence: Float!, $minNumberLength: Int!, $recognitionDelay: Int!){editConfig(minConfidence: $minConfidence, minNumberLength: $minNumberLength, recognitionDelay: $recognitionDelay){minConfidence,minNumberLength,recognitionDelay}}',
+          variables: {
+            ...this.state,
+          },
+        }),
+      });
+      const data = await response.json();
+      console.info(data);
     }
     this.setState({ [type]: !this.state[type] });
   };
@@ -61,7 +76,7 @@ export default class Config extends React.Component {
         <div className={style.row}>
           <div className={style.label}> Minimal confidence : </div>
           {!this.state.editConfidence ? (
-            <div className={style.label}> {this.state.confidence} %</div>
+            <div className={style.label}> {this.state.minConfidence} %</div>
           ) : (
             <input
               className={style.input}
@@ -69,7 +84,7 @@ export default class Config extends React.Component {
               onChange={this.onChange}
               placeholder="Confidence"
               type="number"
-              value={this.state.confidence}
+              value={this.state.minConfidence}
             />
           )}
           <button
@@ -83,7 +98,7 @@ export default class Config extends React.Component {
         <div className={style.row}>
           <div className={style.label}> Minimal delay : </div>
           {!this.state.editDelay ? (
-            <div className={style.label}> {this.state.delay} ms</div>
+            <div className={style.label}> {this.state.recognitionDelay} ms</div>
           ) : (
             <input
               className={style.input}
@@ -91,7 +106,7 @@ export default class Config extends React.Component {
               onChange={this.onChange}
               placeholder="Delay"
               type="number"
-              value={this.state.delay}
+              value={this.state.recognitionDelay}
             />
           )}
           <button

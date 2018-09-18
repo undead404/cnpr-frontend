@@ -1,7 +1,5 @@
 import ConfigType from 'data/types/ConfigType';
-import Database from 'data/database';
-
-const db = new Database();
+import db from 'data/database';
 
 export default {
   type: ConfigType,

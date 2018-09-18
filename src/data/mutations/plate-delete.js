@@ -1,8 +1,6 @@
 import { GraphQLInt, GraphQLNonNull } from 'graphql';
 import PlateType from 'data/types/PlateType';
-import Database from 'data/database';
-
-const db = new Database();
+import db from 'data/database';
 
 export default {
   args: {
@@ -10,6 +8,6 @@ export default {
       type: new GraphQLNonNull(GraphQLInt),
     },
   },
-  resolve: (value, { id }) => db.deletePlate(id) && id,
+  resolve: (value, { id }) => db.deletePlate(id),
   type: PlateType,
 };

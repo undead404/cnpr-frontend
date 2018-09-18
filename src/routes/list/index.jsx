@@ -5,7 +5,7 @@ import List from './List';
 export default async function action({ fetch }) {
   const resp = await fetch('/graphql', {
     body: JSON.stringify({
-      query: '{plates{id,number,allowed, last_seen}}',
+      query: '{plates{id,number,allowed,last_seen}}',
     }),
   });
   console.info(resp);

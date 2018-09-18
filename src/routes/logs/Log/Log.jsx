@@ -5,21 +5,19 @@ import React from 'react';
 import style from './Log.css';
 
 @withStyles(style)
-export default class Log {
+export default class Log extends React.Component {
   static propTypes = {
-    dateTime: PropTypes.string,
-    plate: PropTypes.string,
-    confidence: PropTypes.number,
     approved: PropTypes.bool,
+    confidence: PropTypes.number,
+    dateTime: PropTypes.string,
+    plateNumber: PropTypes.string,
     region: PropTypes.string,
-    id: PropTypes.number,
   };
   static defaultProps = {
     approved: undefined,
     confidence: undefined,
     dateTime: undefined,
-    id: undefined,
-    plate: undefined,
+    plateNumber: undefined,
     region: undefined,
   };
   render() {
@@ -28,7 +26,7 @@ export default class Log {
         <div
           className={cx(
             style.container,
-            this.props.plate ? style.hasPlate : undefined,
+            this.props.plateNumber ? style.hasPlate : undefined,
             this.props.approved ? style.isApproved : undefined,
           )}
         >
@@ -36,16 +34,16 @@ export default class Log {
             {this.props.dateTime || 'TimeStamp'}
           </span>
           <span className={style.cell}>
-            {this.props.plate || 'License plate'}
+            {this.props.plateNumber || 'License plate'}
           </span>
           <span className={style.cell}>{this.props.region || 'Country'}</span>
           <span className={style.cell}>
-            {this.props.confidence
+            {this.props.confidence !== undefined
               ? this.props.confidence.toFixed(2)
               : 'Confidence'}
           </span>
           <span className={style.cell}>
-            {(this.props.plate &&
+            {(this.props.plateNumber &&
               ((this.props.approved && 'ALLOWED') || 'NOT ALLOWED')) ||
               'Access'}
           </span>

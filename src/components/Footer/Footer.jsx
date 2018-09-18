@@ -7,7 +7,7 @@ import ver2blue from './VER2-BLUE.png';
 export default class Footer extends React.Component {
   render() {
     return (
-      <div className={style.root}>
+      <div>
         <div className={style.container}>
           <a
             href="https://www.eliftech.com"
