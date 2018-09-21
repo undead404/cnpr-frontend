@@ -104,6 +104,12 @@ export default class List extends React.Component {
       <div className={style.root}>
         <div className={style.container}>
           <p className={style.title}>Car license number plates white list</p>
+          <div className={style.head}>
+            <p className={style.headId}>ID</p>
+            <p className={style.headNumber}>Plate number</p>
+            <p className={style.headStatusInput}>Allowed?</p>
+            <p className={style.headLastSeen}>Last seen</p>
+          </div>
           {this.state.plates.length > 0 ? (
             this.state.plates.map(plate => (
               <Plate

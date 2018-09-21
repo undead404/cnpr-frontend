@@ -22,7 +22,7 @@ export default class Plate extends React.Component {
   render() {
     return (
       <div className={style.root}>
-        <p className={style.id}>{`ID: ${this.props.id}.`}</p>
+        <p className={style.id}>{this.props.id}</p>
         <p className={style.number}>{` ${this.props.number}`}</p>
         <p className={style.statusInput}>
           <input

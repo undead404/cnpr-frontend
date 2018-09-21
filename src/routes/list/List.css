@@ -4,6 +4,44 @@
   padding: 15px;
 }
 
+.head {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  /* height: 50px;
+  width: 240px; */
+  justify-content: space-between;
+}
+
+.headId {
+  font-size: 24px;
+  margin: 0;
+  margin-right: 5px;
+  padding: 0;
+}
+
+.headNumber {
+  border-radius: 2px;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.headStatusInput {
+  flex-grow: 0;
+  padding: 0 8px;
+}
+
+.headLastSeen {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
 .root {
   align-content: flex-start;
   align-items: stretch;
